@@ -1,0 +1,33 @@
+FROM registry.access.redhat.com/ubi9/python-312
+
+ARG TRIVY_VERSION=0.74.0
+ARG TRIVY_SHA256
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    TRIVY_CACHE_DIR=/var/cache/trivy
+
+USER 0
+RUN microdnf install -y ca-certificates curl git tar gzip shadow-utils \
+    && microdnf clean all \
+    && test -n "${TRIVY_SHA256}" \
+    && curl --fail --show-error --location \
+       "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" \
+       --output /tmp/trivy.tar.gz \
+    && echo "${TRIVY_SHA256}  /tmp/trivy.tar.gz" | sha256sum --check - \
+    && tar -xzf /tmp/trivy.tar.gz -C /usr/local/bin trivy \
+    && rm -f /tmp/trivy.tar.gz \
+    && useradd --create-home --uid 10001 harness \
+    && mkdir -p /workspace /var/cache/trivy \
+    && chown -R harness:harness /workspace /var/cache/trivy
+
+WORKDIR /workspace
+COPY requirements.txt /workspace/requirements.txt
+RUN python -m pip install --no-cache-dir -r /workspace/requirements.txt
+COPY . /workspace/repository
+RUN chown -R harness:harness /workspace/repository
+
+USER 10001
+WORKDIR /workspace/repository
+ENTRYPOINT ["python", "harness/coding_harness.py", "--json"]

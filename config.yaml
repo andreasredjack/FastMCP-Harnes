@@ -1,0 +1,18 @@
+# Native Ubuntu/WSL-Konfiguration fuer den FastMCP-Server.
+# Aenderungen hier wirken beim naechsten Neustart von server.py.
+
+mcp:
+  host: 0.0.0.0 # ANPASSEN: Nur aendern, wenn der MCP-Server an eine bestimmte Netzwerkschnittstelle gebunden werden soll.
+  port: 8000 # ANPASSEN: Lokaler MCP-Port; der MCP-Client muss denselben Port verwenden.
+
+lm_studio:
+  host: 127.0.0.1 # ANPASSEN: LM Studio ist aus dieser WSL-Umgebung ueber localhost erreichbar; bei anderer WSL-Netzwerkkonfiguration die Host-IP eintragen.
+  port: 1234 # ANPASSEN: Muss dem Server-Port von LM Studio entsprechen.
+  base_url: "" # ANPASSEN: Optional; fuer einen vollstaendigen alternativen Endpunkt, z. B. http://192.168.1.10:1234/v1.
+  model: "" # ANPASSEN: Optional; leer verwendet automatisch das erste in LM Studio geladene Modell.
+  security_model: "" # ANPASSEN: Exakte Modell-ID eines geladenen Security-Modells; leer verwendet voruebergehend 'model'.
+
+trivy:
+  executable: trivy # ANPASSEN: Trivy-Binary; in WSL normalerweise einfach 'trivy'.
+  timeout: 300 # ANPASSEN: Maximale Laufzeit eines Updates oder Scans in Sekunden.
+  cache_dir: "" # ANPASSEN: Optionaler Cache-Pfad; leer verwendet den Trivy-Standard.

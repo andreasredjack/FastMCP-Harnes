@@ -1,0 +1,11 @@
+system_id: fastmcp-lmstudio-rag
+intended_purpose: technische Dokumentanalyse
+prohibited_practice_check: pending_legal_review
+risk_category: unclassified
+high_risk_assessment_required: true
+transparency_notice_required: true
+human_oversight: mandatory
+logging_required: true
+accuracy_robustness_security_review: pending
+deployer_owner: TBD
+legal_review_reference: TBD

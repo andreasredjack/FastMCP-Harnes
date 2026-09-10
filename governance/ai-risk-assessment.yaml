@@ -1,0 +1,15 @@
+system_id: fastmcp-lmstudio-rag
+intended_use: technische Dokumentanalyse und defensives Security-Review
+risk_register_status: assessment_required
+known_risks:
+  - model_hallucination
+  - prompt_injection
+  - sensitive_data_disclosure
+  - incorrect_security_assessment
+mitigations:
+  - deterministic_harness
+  - human_review
+  - read_only_tools
+  - secret_and_pii_scanning
+residual_risk_owner: TBD
+review_date: TBD

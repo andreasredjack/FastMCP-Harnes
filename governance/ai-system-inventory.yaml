@@ -1,0 +1,13 @@
+system_id: fastmcp-lmstudio-rag
+name: FastMCP LM Studio RAG
+purpose: lokale technische Dokumentanalyse und Security-Review-Unterstützung
+deployment: local-wsl-almalinux
+model_provider: local-lm-studio
+model_id: qwen3.0
+owner: TBD
+risk_owner: TBD
+data_protection_owner: TBD
+human_oversight_required: true
+autonomous_actions_allowed: false
+production_changes_allowed: false
+status: assessment_required

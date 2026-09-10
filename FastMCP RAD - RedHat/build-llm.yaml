@@ -1,0 +1,19 @@
+# Verbindliche Build-LLM-Konfiguration.
+# Die Modell-ID muss exakt in LM Studio geladen sein.
+build_llm:
+  provider: lm_studio
+  model: qwen3.0
+  base_url: http://127.0.0.1:1234/v1
+  temperature: 0.0
+  timeout_seconds: 180
+  max_input_chars: 60000
+  require_policy_hash: true
+  allow_apply: false
+  allow_shell_execution: false
+  required_gates:
+    - policy_loaded
+    - policy_hash_verified
+    - model_available
+    - input_size_validated
+    - review_output_validated
+    - human_approval_required

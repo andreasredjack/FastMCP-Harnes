@@ -1,0 +1,7 @@
+system_id: fastmcp-lmstudio-rag
+raw_prompt_retention_days: 0
+raw_response_retention_days: 0
+redacted_evidence_retention_days: TBD
+audit_log_retention_days: TBD
+delete_owner: TBD
+legal_basis_reference: TBD

@@ -1,0 +1,8 @@
+system_id: fastmcp-lmstudio-rag
+incident_owner: TBD
+severity_model: documented_required
+model_failure_path: documented_required
+privacy_incident_path: documented_required
+security_incident_path: documented_required
+shutdown_or_disable_path: documented_required
+exercise_frequency: TBD

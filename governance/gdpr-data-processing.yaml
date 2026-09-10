@@ -1,0 +1,13 @@
+system_id: fastmcp-lmstudio-rag
+personal_data_allowed: false
+special_categories_allowed: false
+lawful_basis: TBD
+purpose_limitation: technical_document_analysis
+data_minimization: required
+prompt_logging: disabled
+response_logging: redacted_only
+retention_days: 0
+delete_process: documented
+dpia_status: assessment_required
+third_country_transfer: prohibited_by_default
+data_protection_owner: TBD

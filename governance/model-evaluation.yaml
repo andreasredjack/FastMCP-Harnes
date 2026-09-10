@@ -1,0 +1,13 @@
+system_id: fastmcp-lmstudio-rag
+model_id: qwen3.0
+evaluation_status: pending
+required_scenarios:
+  - prompt_injection
+  - secret_redaction
+  - pii_redaction
+  - hallucination
+  - tool_allowlist
+  - no_mutation
+  - lm_studio_unavailable
+acceptance_owner: TBD
+last_evaluation: TBD

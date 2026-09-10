@@ -1,0 +1,7 @@
+system_id: fastmcp-lmstudio-rag
+human_review_required: true
+review_before_security_decision: true
+review_before_external_release: true
+review_before_any_mutation: true
+appeal_or_escalation_path: TBD
+approval_record_location: evidence/
