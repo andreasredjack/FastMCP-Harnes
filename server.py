@@ -53,6 +53,7 @@ def windows_host_from_wsl() -> str:
 config = load_yaml(CONFIG_PATH)
 security_config = load_yaml(SECURITY_CONFIG_PATH).get("security_review", {})
 mcp_config = config.get("mcp", {})
+gateway_config = config.get("model_gateway", {})
 lm_studio_config = config.get("lm_studio", {})
 trivy_config = config.get("trivy", {})
 
@@ -66,14 +67,18 @@ lm_studio_port = os.getenv(
     "LM_STUDIO_PORT", str(lm_studio_config.get("port", 1234))
 )
 lm_studio_base_url = os.getenv(
-    "LM_STUDIO_BASE_URL",
-    lm_studio_config.get(
-        "base_url", f"http://{lm_studio_host}:{lm_studio_port}/v1"
-    )
-    or f"http://{lm_studio_host}:{lm_studio_port}/v1",
+    "MODEL_GATEWAY_BASE_URL",
+    gateway_config.get(
+        "base_url",
+        lm_studio_config.get(
+            "base_url", f"http://{lm_studio_host}:{lm_studio_port}/v1"
+        )
+        or f"http://{lm_studio_host}:{lm_studio_port}/v1",
+    ),
 )
 lm_studio_model = os.getenv(
-    "LM_STUDIO_MODEL", lm_studio_config.get("model") or "local-model"
+    "MODEL_GATEWAY_MODEL",
+    gateway_config.get("model") or os.getenv("LM_STUDIO_MODEL", lm_studio_config.get("model") or "local-model"),
 )
 security_model = os.getenv(
     "SECURITY_MODEL",
@@ -82,7 +87,10 @@ security_model = os.getenv(
 
 client = AsyncOpenAI(
     base_url=lm_studio_base_url,
-    api_key=os.getenv("LM_STUDIO_API_KEY", "lm-studio"),
+    api_key=os.getenv(
+        gateway_config.get("api_key_env", "LITELLM_API_KEY"),
+        os.getenv("LM_STUDIO_API_KEY", "lm-studio"),
+    ),
 )
 mcp = FastMCP(
     "LM Studio RAG",

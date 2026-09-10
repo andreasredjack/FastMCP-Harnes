@@ -36,6 +36,13 @@ REQUIRED_GOVERNANCE_FILES = [
     "governance/incident-response.yaml",
 ]
 GOVERNANCE_BLOCKING_VALUES = {"", "TBD", "pending", "assessment_required"}
+GATEWAY_REQUIRED_FILES = [
+    "gateway/gateway-architecture.yaml",
+    "gateway/litellm-config.yaml",
+    "gateway/nginx.conf",
+    "gateway/nginx.test.conf",
+    "gateway/docker-compose.yml",
+]
 PYTHON_SUFFIXES = {".py"}
 YAML_SUFFIXES = {".yaml", ".yml"}
 
@@ -156,6 +163,47 @@ def check_governance_files() -> dict[str, Any]:
     }
 
 
+def check_gateway_architecture() -> dict[str, Any]:
+    missing = [
+        relative_path
+        for relative_path in GATEWAY_REQUIRED_FILES
+        if not (REPOSITORY_ROOT / relative_path).is_file()
+    ]
+    findings: list[str] = []
+    architecture_path = REPOSITORY_ROOT / "gateway/gateway-architecture.yaml"
+    if architecture_path.is_file():
+        try:
+            architecture = yaml.safe_load(architecture_path.read_text(encoding="utf-8")) or {}
+            if architecture.get("edge_proxy", {}).get("type") != "nginx":
+                findings.append("edge proxy must be nginx")
+            if architecture.get("edge_proxy", {}).get("tls_minimum") != "TLSv1.3":
+                findings.append("TLS minimum must be TLSv1.3")
+            if not architecture.get("edge_proxy", {}).get("rate_limit_required"):
+                findings.append("rate limiting must be required")
+            if architecture.get("model_gateway", {}).get("type") != "litellm":
+                findings.append("model gateway must be LiteLLM")
+            backends = architecture.get("backends", {})
+            if set(backends) != {"rag", "coding"}:
+                findings.append("exactly rag and coding backends are required")
+            for name, backend in backends.items():
+                if not backend.get("endpoint") or not backend.get("models"):
+                    findings.append(f"backend {name} lacks endpoint or models")
+                if backend.get("gpu") not in {"disabled", "0", "1"}:
+                    findings.append(f"backend {name} has invalid gpu declaration")
+        except (OSError, UnicodeError, yaml.YAMLError) as error:
+            findings.append(str(error))
+    compose_path = REPOSITORY_ROOT / "gateway/docker-compose.yml"
+    if compose_path.is_file():
+        text = compose_path.read_text(encoding="utf-8")
+        for required in ("litellm", "nginx", "ollama-rag", "ollama-coding", "rag-backend", "coding-backend"):
+            if required not in text:
+                findings.append(f"docker compose missing {required}")
+    nginx_path = REPOSITORY_ROOT / "gateway/nginx.conf"
+    if nginx_path.is_file() and "ssl_protocols TLSv1.3" not in nginx_path.read_text(encoding="utf-8"):
+        findings.append("nginx production config lacks TLSv1.3")
+    return {"required": GATEWAY_REQUIRED_FILES, "missing": missing, "findings": findings, "ok": not missing and not findings}
+
+
 def run_harness() -> dict[str, Any]:
     files = repository_files()
     python_checks = [
@@ -165,6 +213,7 @@ def run_harness() -> dict[str, Any]:
     checks = {
         "mandatory_policy_files": check_policy_files(),
         "governance_files": check_governance_files(),
+        "gateway_architecture": check_gateway_architecture(),
         "git_status": run_command(["git", "status", "--short", "--branch"]),
         "git_diff_check": run_command(
             ["git", "-c", "core.whitespace=cr-at-eol", "diff", "--check"]

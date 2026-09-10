@@ -27,6 +27,22 @@ Der Server der Testkopie darf nur gegen das lokale LM Studio verwendet werden.
 Tools wie `ask_llm`, `review_code_security` und `lm_studio_status` erzeugen
 keine produktiven Änderungen.
 
+## Gateway-Teststack
+
+Die lokale Gateway-Architektur liegt unter `gateway/` und besteht aus Nginx,
+LiteLLM sowie getrennten RAG-/Coding-Backendgrenzen. Der CPU-Teststack wird
+separat vom FastMCP-Server gestartet:
+
+```powershell
+Set-Location "H:\VS Code Arbeitsbereiche\FastMCP-Harness\gateway"
+Copy-Item .env.example .env
+docker compose config
+docker compose up -d litellm nginx
+```
+
+Die Ollama-Backends werden nur bei Bedarf mit `--profile backends` gestartet.
+Die Harness kontrolliert die Gateway-Dateien vor einer Freigabe.
+
 ## Governance-Gates
 
 Die Harness blockiert, wenn:

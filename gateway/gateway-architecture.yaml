@@ -1,0 +1,46 @@
+version: 1
+mode: local-cpu-test
+edge_proxy:
+  type: nginx
+  listen_host: 127.0.0.1
+  listen_port: 8443
+  upstream: litellm:4000
+  tls_minimum: TLSv1.3
+  rate_limit_required: true
+  public_exposure: false
+model_gateway:
+  type: litellm
+  listen_port: 4000
+  api_key_required: true
+  token_tracking: true
+  direct_backend_access: false
+backends:
+  rag:
+    endpoint: http://ollama-rag:11434
+    host_port: 11434
+    gpu: disabled
+    models:
+      - rag-gpt-oss
+      - rag-embedding
+  coding:
+    endpoint: http://ollama-coding:11434
+    host_port: 11435
+    gpu: disabled
+    models:
+      - coding-qwen
+      - coding-qwen-small
+      - coding-gemma
+acl:
+  rag-users:
+    models: [rag-gpt-oss, rag-embedding]
+  coding-users:
+    models: [coding-qwen, coding-qwen-small, coding-gemma]
+  security-review:
+    models: [coding-qwen, coding-qwen-small]
+  admin:
+    models: [rag-gpt-oss, rag-embedding, coding-qwen, coding-qwen-small, coding-gemma]
+fastmcp:
+  upstream: http://litellm:4000/v1
+  model_aliases: [coding-qwen, coding-qwen-small]
+  direct_lm_studio_access: false
+  autonomous_mutation: false

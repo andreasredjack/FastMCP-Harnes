@@ -1,0 +1,57 @@
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    command: ["--config", "/app/config.yaml", "--port", "4000", "--host", "0.0.0.0"]
+    environment:
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY:?set LITELLM_MASTER_KEY}
+      LITELLM_DATABASE_URL: ${LITELLM_DATABASE_URL:-}
+    volumes:
+      - ./litellm-config.yaml:/app/config.yaml:ro
+    networks: [gateway, rag-backend, coding-backend]
+    expose: ["4000"]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+
+  nginx:
+    image: nginx:1.29-alpine
+    depends_on: [litellm]
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./nginx.test.conf:/etc/nginx/nginx.conf:ro
+    networks: [gateway]
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
+    cap_drop: [ALL]
+    cap_add: [CHOWN, SETUID, SETGID]
+    security_opt: [no-new-privileges:true]
+
+  ollama-rag:
+    image: ollama/ollama:0.11.10
+    profiles: [backends]
+    expose: ["11434"]
+    volumes: [ollama-rag-models:/root/.ollama]
+    networks: [rag-backend]
+
+  ollama-coding:
+    image: ollama/ollama:0.11.10
+    profiles: [backends]
+    expose: ["11434"]
+    volumes: [ollama-coding-models:/root/.ollama]
+    networks: [coding-backend]
+
+networks:
+  gateway:
+    internal: true
+  rag-backend:
+    internal: true
+  coding-backend:
+    internal: true
+
+volumes:
+  ollama-rag-models:
+  ollama-coding-models:

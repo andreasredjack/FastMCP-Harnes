@@ -5,6 +5,12 @@ mcp:
   host: 0.0.0.0 # ANPASSEN: Nur aendern, wenn der MCP-Server an eine bestimmte Netzwerkschnittstelle gebunden werden soll.
   port: 8000 # ANPASSEN: Lokaler MCP-Port; der MCP-Client muss denselben Port verwenden.
 
+model_gateway:
+  base_url: http://127.0.0.1:8443/v1 # Test-Gateway hinter Nginx/LiteLLM.
+  model: coding-qwen
+  api_key_env: LITELLM_API_KEY
+  direct_backend_access: false
+
 lm_studio:
   host: 127.0.0.1 # ANPASSEN: LM Studio ist aus dieser WSL-Umgebung ueber localhost erreichbar; bei anderer WSL-Netzwerkkonfiguration die Host-IP eintragen.
   port: 1234 # ANPASSEN: Muss dem Server-Port von LM Studio entsprechen.
