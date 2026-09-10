@@ -7,6 +7,13 @@
 - GPU-/ROCm-Zuweisung beziehungsweise CPU-Betriebsgrenze nachweisen;
 - FastMCP-Testserver ausschließlich über das Gateway testen;
 - Gateway-, Routing- und Backend-Gates mit Integrationstests automatisieren.
+
+## Prompt-Registry und Gateway
+
+LiteLLM verwaltet Modellrouting und ACLs; die PostgreSQL-Prompt-Registry
+verwaltet Prompt-Versionen, Evaluation und Freigaben. FastMCP verbindet die
+freigegebene Prompt-Version mit einem Gateway-Modellalias. Die Datenbank ist
+kein Modellendpunkt und wird nicht vom LLM beschrieben.
 # Lokale Gateway-Architektur
 
 ## Ziel

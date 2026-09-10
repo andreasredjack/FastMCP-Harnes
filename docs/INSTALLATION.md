@@ -99,6 +99,20 @@ erfolgreich nachgewiesen sind. Sie ist kein Deployment-Runner.
 - Gateway-End-to-End-Test mit freigegebenen Modellaliasen durchführen;
 - Governance-Owner, Rechtsprüfung, DPIA-/DSGVO-Status und Evidence-Aufbewahrung eintragen.
 
+## PostgreSQL-Prompt-Registry
+
+Für den isolierten Probelauf kann PostgreSQL 16 lokal über Docker gestartet werden:
+
+```powershell
+Set-Location "H:\VS Code Arbeitsbereiche\FastMCP-Harness\prompt-registry"
+docker run --name fastmcp-harness-postgres -e POSTGRES_USER=harness -e POSTGRES_PASSWORD=change-me-test-only -e POSTGRES_DB=harness -p 127.0.0.1:55432:5432 -v fastmcp-harness-postgres:/var/lib/postgresql/data -d postgres:16-alpine
+Get-Content .\schema.sql | docker exec -i fastmcp-harness-postgres psql -U harness -d harness
+```
+
+Das Testpasswort ist niemals produktiv zu verwenden. TLS, Rollen, Backups,
+Restore, Monitoring, Retention und Secret-Management müssen vor produktiver
+Nutzung separat freigegeben werden.
+
 ## Testmodell und Abnahmegrenze
 
 Die Installation umfasst derzeit den Harness-Orchestrator und die LLM-/Gateway-

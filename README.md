@@ -174,6 +174,13 @@ Rückfallebene installiert.
 - PII-/Secret-Scan, Evaluation, Evidence Bundle und menschliche Freigaben vervollständigen;
 - offene Governance-Werte in `governance/` durch verantwortete Nachweise ersetzen.
 
+## Prompt-Registry
+
+Unter `prompt-registry/` liegt das validierte PostgreSQL-16-Referenzschema für
+Prompt-Templates, Modellprovenienz, Datensätze, Evaluation-Runs, Freigaben,
+Evidence Bundles und Audit-Ereignisse. Das LLM erhält keinen direkten
+Datenbankzugriff; genehmigte Prompt-Versionen sind unveränderlich.
+
 ## Technisches Testmodell
 
 Die aktuelle Architektur entspricht dem folgenden Modell nur teilweise:

@@ -6,6 +6,14 @@
 - GPU-/ROCm-Betrieb oder verbindliche CPU-Betriebsgrenzen dokumentieren;
 - PII-/Secret-Scans und Evaluation-Suite als verpflichtende CI-Gates aktivieren;
 - Evidence Bundle und menschliche Produktionsfreigabe organisatorisch verankern.
+
+## Prompt-Registry im Betrieb
+
+Die PostgreSQL-Registry bildet Prompt-, Modell-, Dataset- und Evaluation-Versionen
+mit Freigaben und Audit-Ereignissen ab. Der Ablauf ist: `draft`, Review,
+Evaluation, menschliche Freigabe, `approved`. Genehmigte Prompt-Versionen sind
+unveränderlich; Änderungen erzeugen neue Versionen. Das LLM erhält keinen
+direkten Datenbankzugriff und Roh-Prompts werden nicht automatisch gespeichert.
 # Betrieb FastMCP-Harness
 
 ## Betriebsmodell

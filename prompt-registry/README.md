@@ -49,3 +49,11 @@ produktiv verwendet werden.
 - PII- und Secret-Scans laufen vor Evidence-Erzeugung.
 - Evaluationsergebnisse referenzieren Modell-, Prompt- und Dataset-Versionen.
 - Die Datenbank ersetzt keine rechtliche Prüfung nach DSGVO oder EU AI Act.
+
+## ToDo: Zielarchitektur
+
+- FastMCP-Datenbankrolle mit minimalen Rechten einrichten;
+- PostgreSQL-TLS, Backup, Restore, Monitoring und Retention freigeben;
+- Prompt-Registry-Service zwischen FastMCP und Datenbank schalten;
+- PII-/Secret-Scan vor Speicherung und Evidence-Erzeugung integrieren;
+- PostgreSQL-Integration in Harness- und Evaluation-Suite testen.

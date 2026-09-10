@@ -6,6 +6,12 @@
 - GPU-/ROCm- oder CPU-Betriebsprofil formell abnehmen;
 - PII-/Secret- und Prompt-Injection-Evaluation ergänzen;
 - Governance-Werte aus `TBD`/`pending` in freigegebene Nachweise überführen.
+
+## Prompt-Registry-Test
+
+Das PostgreSQL-16-Referenzschema wurde in einem temporären Container erfolgreich
+eingespielt. Es erzeugte 13 Tabellen, Indizes und den Trigger für unveränderliche
+freigegebene Prompt-Versionen. Der Testcontainer wurde danach entfernt.
 # Testprotokoll FastMCP-Harness
 
 **Testtyp:** isolierte Governance-Testkopie

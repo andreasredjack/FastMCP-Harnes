@@ -71,6 +71,13 @@ Dokumentprüfung und gegebenenfalls unabhängige Bewertung.
 - PII-/Secret-Scan, Modellprovenienz und Evidence Bundle implementieren;
 - Gateway-ACLs, menschliche Aufsicht und Incident-Prozess freigeben.
 
+## Prompt-Registry
+
+Das Schema `prompt-registry/schema.sql` verbindet Prompt-, Modell-, Dataset- und
+Evaluation-Versionen mit Freigaben und Audit-Ereignissen. Es unterstützt
+ISO-42001-Provenienz, EU-AI-Act-Evaluation und DSGVO-Retention, ersetzt aber
+keine rechtliche Bewertung. Genehmigte Prompt-Versionen bleiben unveränderlich.
+
 ## Testmodell und Nachweisgrenze
 
 Ein Harness-Ergebnis bewertet derzeit technische Gates und Governance-Eingaben.
