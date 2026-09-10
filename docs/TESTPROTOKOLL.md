@@ -1,3 +1,11 @@
+## ToDo: Zielarchitektur
+
+- Docker-Desktop-Portfreigabe für den Nginx-Testpfad reparieren;
+- LiteLLM-Aufruf über Nginx mit ACL und Test-API-Key ausführen;
+- beide Ollama-Backends starten und Modellrouting end-to-end prüfen;
+- GPU-/ROCm- oder CPU-Betriebsprofil formell abnehmen;
+- PII-/Secret- und Prompt-Injection-Evaluation ergänzen;
+- Governance-Werte aus `TBD`/`pending` in freigegebene Nachweise überführen.
 # Testprotokoll FastMCP-Harness
 
 **Testtyp:** isolierte Governance-Testkopie

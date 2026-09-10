@@ -1,5 +1,13 @@
 # FastMCP-Harness fuer Container und lokale WSL-Ausfuehrung
 
+## ToDo: Zielarchitektur
+
+- Gateway- und Backend-Integrationstests in die Harness aufnehmen;
+- Nginx-TLS-, Rate-Limit- und LiteLLM-ACL-Prüfungen ausführen;
+- Modellgruppen und getrennte Ollama-Backends gegen die Architekturdatei prüfen;
+- PII-/Secret-Scan und Prompt-Injection-Evaluation implementieren;
+- Evidence Bundle mit Modell-, Policy- und Konfigurationshashes erzeugen;
+- offene Governance-Owner und Rechtsprüfungen vor einer Freigabe schließen.
 Dieses Dokument beschreibt das eigenständige Projekt `FastMCP-Harness`. Es ist
 aus einer isolierten Kopie des FastMCP-Servers entstanden. Das Originalsystem
 bleibt unverändert; die Testkopie verwendet Port `8100`, eine eigene Python-

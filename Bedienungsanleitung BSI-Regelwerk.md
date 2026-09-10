@@ -236,6 +236,13 @@ organisatorische Sicherheitsmassnahmen erforderlich.
 Der FastMCP-Server fuehrt den uebergebenen Code nicht aus. Der Code wird als
 Text an das lokal konfigurierte Modell in LM Studio gesendet.
 
+## ToDo: Zielarchitektur
+
+- BSI-Regeln um Gateway-, Routing- und Modelltrennungskontrollen ergänzen;
+- TLS-, ACL-, Rate-Limit- und Secret-Nachweise in das Review aufnehmen;
+- getrennte RAG-/Coding-Backends gegen die freigegebene Architektur prüfen;
+- Harness-Ergebnis mit Evidence Bundle und menschlicher Freigabe verknüpfen.
+
 ## Quellen
 
 - BSI IT-Grundschutz: <https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/IT-Grundschutz/it-grundschutz_node.html>

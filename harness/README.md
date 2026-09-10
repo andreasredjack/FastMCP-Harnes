@@ -59,6 +59,13 @@ Der Bericht enthaelt keinen Schreibschritt und weist mit
 5. Harness erneut ausfuehren.
 6. Security-Review, Tests, Merge Request und Cluster-GitOps-Prozess anwenden.
 
+## ToDo: Zielarchitektur
+
+- Gateway-Konfiguration als verpflichtenden Harness-Scope prüfen;
+- Nginx-TLS und Rate Limiting statisch und integrativ testen;
+- LiteLLM-ACLs und RAG-/Coding-Modellgruppen gegen Allowlist prüfen;
+- Evidence Bundle, PII-Scan und Prompt-Injection-Suite ergänzen.
+
 Die Harness ist kein Deployment-Runner. `terraform apply`, `kubectl apply`,
 Produktionsaenderungen und Jira-/Confluence-Freigaben bleiben ausserhalb und
 benoetigen eigene Berechtigungen und menschliche Freigaben.

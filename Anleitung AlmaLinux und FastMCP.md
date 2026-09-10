@@ -1,3 +1,11 @@
+# ToDo: Zielarchitektur
+
+- Nginx-/LiteLLM-Gateway mit TLS, ACLs und Rate Limiting end-to-end testen;
+- getrennte Ollama-RAG-/Coding-Backends auf dem Zielsystem bereitstellen;
+- GPU-/ROCm-Unterstützung oder CPU-Betriebsprofil dokumentieren;
+- FastMCP ausschließlich über das Gateway betreiben;
+- Harness-Gateway- und Governance-Gates vor jeder Freigabe ausführen.
+
 # Anleitung: AlmaLinux 9 und FastMCP unter WSL
 
 AlmaLinux 9 ist die lokale RHEL-nahe WSL-Umgebung fuer FastMCP. Ubuntu bleibt

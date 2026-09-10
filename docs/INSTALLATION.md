@@ -89,3 +89,12 @@ PY
 Die Testkopie darf erst als betriebsbereit bezeichnet werden, wenn Harness,
 Governance-Prüfungen, PII-/Secret-Scans, Evaluation und menschliche Freigaben
 erfolgreich nachgewiesen sind. Sie ist kein Deployment-Runner.
+
+## ToDo: Zielarchitektur
+
+- produktive TLS-Zertifikate und Nginx-Authentifizierung freigeben;
+- LiteLLM-API-Keys, ACLs, Tokenlimits und Retention festlegen;
+- getrennte Ollama-RAG-/Coding-Backends mit eigenen Volumes und Netzwerken bereitstellen;
+- GPU-/ROCm-Unterstützung auf dem Zielsystem nachweisen;
+- Gateway-End-to-End-Test mit freigegebenen Modellaliasen durchführen;
+- Governance-Owner, Rechtsprüfung, DPIA-/DSGVO-Status und Evidence-Aufbewahrung eintragen.

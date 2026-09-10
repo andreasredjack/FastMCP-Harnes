@@ -163,3 +163,13 @@ WSL-Distribution zur Verfügung. Die Einrichtung, Python-3.11-venv, Trivy-
 Installation und der Harness-Lauf sind in
 `Anleitung AlmaLinux und FastMCP.md` dokumentiert. Ubuntu bleibt als
 Rückfallebene installiert.
+
+## ToDo: Zielarchitektur
+
+- Nginx mit produktivem TLS 1.3, Authentifizierung und freigegebenem Rate Limit betreiben;
+- LiteLLM-ACLs, Token-Tracking und produktive Modellfreigaben definieren;
+- getrennte Ollama-RAG-/Coding-Backends mit eigenen Volumes und Netzwerken umsetzen;
+- GPU-/ROCm-Konfiguration auf dem Zielsystem validieren;
+- FastMCP ausschließlich über das Gateway routen und den direkten Fallback entfernen;
+- PII-/Secret-Scan, Evaluation, Evidence Bundle und menschliche Freigaben vervollständigen;
+- offene Governance-Werte in `governance/` durch verantwortete Nachweise ersetzen.

@@ -1,3 +1,11 @@
+# ToDo: Zielarchitektur
+
+- Ubuntu/AlmaLinux-Testprofile an die Gateway-Testkonfiguration angleichen;
+- LiteLLM-Aliasse, ACLs und Tokenlimits mit Testkonten verifizieren;
+- getrennte Ollama-Netzwerke und Modellvolumes testen;
+- PII-/Secret-Scan und Prompt-Injection-Evaluation ergänzen;
+- offene Governance-Owner und rechtliche Bewertungen eintragen.
+
 # Anleitung: Ubuntu LTS und Python 3 im WSL
 
 Diese Anleitung beschreibt die Einrichtung einer Ubuntu-LTS-Distribution mit

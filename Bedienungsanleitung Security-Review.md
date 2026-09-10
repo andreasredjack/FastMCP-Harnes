@@ -175,6 +175,13 @@ lm_studio:
 Den laufenden FastMCP-Prozess beenden und mit `python server.py` neu starten.
 YAML-Aenderungen werden nicht waehrend der Laufzeit automatisch eingelesen.
 
+## ToDo: Zielarchitektur
+
+- Security-Review ausschließlich über das LiteLLM-Gateway routen;
+- Modellalias, Gateway-Policy-Hash und Human-Oversight-Status im Ergebnis führen;
+- PII-/Secret-Redaktion vor Modellaufruf und Evidence-Speicherung ergänzen;
+- Prompt-Injection-, No-Mutation- und Backend-Allowlist-Tests als Pflichtsuite aufnehmen.
+
 ### Der Code ist zu lang
 
 Die maximale Groesse wird in `security-review.yaml` unter

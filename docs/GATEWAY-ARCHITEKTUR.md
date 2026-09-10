@@ -1,3 +1,12 @@
+## ToDo: Zielarchitektur
+
+- Host-Portfreigabe von Docker Desktop für Nginx auf dem Zielsystem beheben;
+- produktive TLS-Zertifikate, Authentifizierung und echte Rate-Limit-Werte einsetzen;
+- LiteLLM-ACLs mit realen Rollen und kurzlebigen API-Keys konfigurieren;
+- Ollama-RAG und Ollama-Coding mit realen Modellvolumes starten;
+- GPU-/ROCm-Zuweisung beziehungsweise CPU-Betriebsgrenze nachweisen;
+- FastMCP-Testserver ausschließlich über das Gateway testen;
+- Gateway-, Routing- und Backend-Gates mit Integrationstests automatisieren.
 # Lokale Gateway-Architektur
 
 ## Ziel

@@ -1,3 +1,11 @@
+## ToDo: Zielarchitektur
+
+- externe Gateway-Erreichbarkeit über TLS 1.3 und Portbindung prüfen;
+- Nginx-Rate-Limit und LiteLLM-ACLs mit Testkonten verifizieren;
+- getrennte Ollama-Backends und Modellrouting vollständig end-to-end testen;
+- GPU-/ROCm-Betrieb oder verbindliche CPU-Betriebsgrenzen dokumentieren;
+- PII-/Secret-Scans und Evaluation-Suite als verpflichtende CI-Gates aktivieren;
+- Evidence Bundle und menschliche Produktionsfreigabe organisatorisch verankern.
 # Betrieb FastMCP-Harness
 
 ## Betriebsmodell

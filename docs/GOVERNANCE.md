@@ -61,3 +61,12 @@ Das Projekt ist eine technische Kontroll- und Testumgebung. Es stellt keine
 ISO-42001-Zertifizierung, EU-AI-Act-Konformität, DSGVO-Bewertung oder formale
 BSI-/C5-Testierung dar. Diese Aussagen erfordern zuständige Rollen,
 Dokumentprüfung und gegebenenfalls unabhängige Bewertung.
+
+## ToDo: Zielarchitektur
+
+- verantwortliche Rollen und Freigabematrix benennen;
+- EU-AI-Act-Risikoklassifikation und rechtliche Prüfung abschließen;
+- DSGVO-Rechtsgrundlage, DPIA-Entscheidung und Löschfristen festlegen;
+- ISO-42001-Risikoregister, Evaluation und Verbesserungsprozess nachweisen;
+- PII-/Secret-Scan, Modellprovenienz und Evidence Bundle implementieren;
+- Gateway-ACLs, menschliche Aufsicht und Incident-Prozess freigeben.
