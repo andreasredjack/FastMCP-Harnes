@@ -95,3 +95,11 @@ Owner und den dokumentierten Übergang zu CI/GitOps.
 Zum Beenden ausschließlich den Prozess der Testkopie auf Port 8100 stoppen.
 Die Prozesse auf Ports 8000 und 8001 gehören zum Originalsystem und bleiben
 unangetastet.
+
+## Testmodell im Betrieb
+
+Der aktuelle Betrieb deckt Harness-Orchestrator und LLM-/Gateway-Aufruf ab.
+Für belastbare Qualitäts- und Sicherheitsnachweise fehlen noch die getrennte
+Datensatz-Pipeline, erwartete Referenzergebnisse, unabhängige Grader sowie ein
+revisionssicheres Evidence Bundle. Diese Lücke blockiert eine vollständige
+Produktionsfreigabe.

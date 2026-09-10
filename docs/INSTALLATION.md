@@ -98,3 +98,11 @@ erfolgreich nachgewiesen sind. Sie ist kein Deployment-Runner.
 - GPU-/ROCm-Unterstützung auf dem Zielsystem nachweisen;
 - Gateway-End-to-End-Test mit freigegebenen Modellaliasen durchführen;
 - Governance-Owner, Rechtsprüfung, DPIA-/DSGVO-Status und Evidence-Aufbewahrung eintragen.
+
+## Testmodell und Abnahmegrenze
+
+Die Installation umfasst derzeit den Harness-Orchestrator und die LLM-/Gateway-
+Anbindung. Eine vollständige Abnahme benötigt zusätzlich eine versionierte
+Datensatz-Pipeline, erwartete Ergebnisse, unabhängige Evaluation/Grader und ein
+Evidence Bundle. Diese Komponenten müssen vor einer Zielarchitektur-Freigabe
+installiert und getestet werden.

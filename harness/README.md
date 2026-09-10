@@ -69,3 +69,10 @@ Der Bericht enthaelt keinen Schreibschritt und weist mit
 Die Harness ist kein Deployment-Runner. `terraform apply`, `kubectl apply`,
 Produktionsaenderungen und Jira-/Confluence-Freigaben bleiben ausserhalb und
 benoetigen eigene Berechtigungen und menschliche Freigaben.
+
+## Technisches Testmodell
+
+Die Harness ist der Orchestrator, nicht der Richter. Testdaten, erwartete
+Ergebnisse und unabhängige Evaluation müssen als getrennte Komponenten ergänzt
+werden. Erst die Kombination aus Harness, Datensatz-Pipeline, LLM/Applikation
+und Evaluation-Suite bildet den vollständigen Nachweisprozess.

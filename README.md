@@ -173,3 +173,17 @@ Rückfallebene installiert.
 - FastMCP ausschließlich über das Gateway routen und den direkten Fallback entfernen;
 - PII-/Secret-Scan, Evaluation, Evidence Bundle und menschliche Freigaben vervollständigen;
 - offene Governance-Werte in `governance/` durch verantwortete Nachweise ersetzen.
+
+## Technisches Testmodell
+
+Die aktuelle Architektur entspricht dem folgenden Modell nur teilweise:
+
+```text
+Datensatz-Pipeline -> Harness-Orchestrator -> LLM / Applikation
+									  -> Evaluation-Suite / Richter
+```
+
+Vorhanden sind Harness-Orchestrator, FastMCP-Anwendung, Gateway-Konfiguration
+und deterministische Gates. Noch aufzubauen sind versionierte Datensätze,
+erwartete Ergebnisse, unabhängige Evaluation/Grader und ein vollständiges
+Evidence Bundle.

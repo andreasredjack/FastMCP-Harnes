@@ -55,3 +55,10 @@ Es wurden keine Prozesse auf Port 8000 oder 8001 gestoppt oder verändert.
 4. Evidence Bundle implementieren.
 5. Harness erneut mit Exit-Code 0 ausführen.
 6. Security-/Datenschutz-/Rechtsfreigabe dokumentieren.
+
+## Testmodellstatus
+
+Der dokumentierte Teststand bestätigt den Harness-Orchestrator und die
+LLM-/Gateway-Verbindung. Die Datensatz-Pipeline, unabhängige Evaluation-Suite,
+Richterlogik und das vollständige Evidence Bundle sind noch offen und daher
+als Freigabeblockade zu behandeln.

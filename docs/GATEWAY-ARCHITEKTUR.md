@@ -82,3 +82,9 @@ Die Harness prüft zwingend:
 
 Ein erfolgreicher Architekturcheck ist ein technischer Nachweis, keine
 Produktionsfreigabe.
+
+## Beziehung zum Testmodell
+
+Das Gateway stellt die LLM-/Applikationsschicht bereit. Die Harness orchestriert
+Aufträge und technische Gates. Eine Datensatz-Pipeline und eine unabhängige
+Evaluation-Suite mit Richterfunktion sind noch separate offene Komponenten.

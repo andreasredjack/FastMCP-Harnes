@@ -402,3 +402,14 @@ Auch lokal gilt:
 
 Die lokale WSL-Ausfuehrung liefert damit dieselbe fachliche Pruefreihenfolge,
 ist aber nur eine optionale Entwicklungs- und Diagnosevariante.
+
+## Technisches Testmodell
+
+Die Harness bildet derzeit den Orchestrator zwischen Testauftrag und LLM/
+Applikation. Eine unabhängige Evaluation-Suite ist noch nicht implementiert.
+Für den vollständigen Zielzustand fehlen:
+
+- versionierte Datensatz-Fixtures und erwartete Ergebnisse;
+- ein separater Test-Suite-Runner;
+- unabhängige Grader/Richter für Sicherheit und Qualität;
+- Evidence Bundle mit Modell-, Policy- und Testfall-Hashes.

@@ -70,3 +70,11 @@ Dokumentprüfung und gegebenenfalls unabhängige Bewertung.
 - ISO-42001-Risikoregister, Evaluation und Verbesserungsprozess nachweisen;
 - PII-/Secret-Scan, Modellprovenienz und Evidence Bundle implementieren;
 - Gateway-ACLs, menschliche Aufsicht und Incident-Prozess freigeben.
+
+## Testmodell und Nachweisgrenze
+
+Ein Harness-Ergebnis bewertet derzeit technische Gates und Governance-Eingaben.
+Es ersetzt keine unabhängige Evaluation der LLM-Ausgaben. Für ISO-42001-,
+EU-AI-Act- und DSGVO-relevante Nachweise müssen Testdatensätze, Grader,
+Referenzergebnisse, Modellprovenienz und Evidence Bundle getrennt versioniert
+werden.
